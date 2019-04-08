@@ -13,7 +13,7 @@
 *************************************************************/
 
 /********************* Library Includes *********************/
-#include <arduino-OC11.h> // https://github.com/xinabox/arduino-OC11
+#include <xOC11.h> // https://github.com/xinabox/arduino-OC11
 #include <xCore.h> 
 
 /****************** Global sensor objects *******************/
@@ -23,14 +23,7 @@ xOC11 OC11;
 const int DELAY_TIME = 2000;
 
 /*********************** Sketch Code ************************/
-void setup() {
-	// Start the Serial Monitor
-	Serial.begin(115200);
-
-	#ifdef ESP8266
-		Wire.pins(2,14);
-	#endif
-		
+void setup() {	
 	// Start the I2C Communication
 	Wire.begin();
 	
