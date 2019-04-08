@@ -27,8 +27,8 @@
 
 #define PCA9554A_ALL_OUTPUTS_OFF	0x00
 
-#define CH1	0
-#define CH2	1
+#define CH0	0
+#define CH1	1
 
 /********************************************************************/
 

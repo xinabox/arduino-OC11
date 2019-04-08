@@ -35,16 +35,16 @@ bool xOC11::begin(void)
 
 bool xOC11::begin(bool state)
 {
+	digitalWrite(CH0,state);
 	digitalWrite(CH1,state);
-	digitalWrite(CH2,state);
 	xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_CONFIG, PCA9554A_CONF_OUTPUT);
 	return true;
 }
 
 bool xOC11::begin(bool state_1, bool state_2)
 {
-	digitalWrite(CH1,state_1);
-	digitalWrite(CH2,state_2);
+	digitalWrite(CH0,state_1);
+	digitalWrite(CH1,state_2);
 	xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_CONFIG, PCA9554A_CONF_OUTPUT);
 	return true;
 }
