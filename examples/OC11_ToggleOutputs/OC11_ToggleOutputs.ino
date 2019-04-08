@@ -13,7 +13,7 @@
 *************************************************************/
 
 /********************* Library Includes *********************/
-#include <arduino-OC11.h> // https://github.com/xinabox/arduino-OC11
+#include <xOC11.h> // https://github.com/xinabox/arduino-OC11
 #include <xCore.h> 
 
 /****************** Global sensor objects *******************/
@@ -43,7 +43,7 @@ void setup() {
 void loop() {
 
 	// turn outputs on
-	for (int i = 0; i < 2; i++) {
+	for (int i = 1; i < 3; i++) {
 		OC11.digitalWrite(i, HIGH);
 	    delay(DELAY_TIME);	
 	}
