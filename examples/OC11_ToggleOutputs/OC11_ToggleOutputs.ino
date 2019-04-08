@@ -36,7 +36,7 @@ void setup() {
 void loop() {
 
 	// turn outputs on
-	for (int i = 0; i < 2; i++) {
+	for (int i = 1; i < 3; i++) {
 		OC11.digitalWrite(i, HIGH);
 	    delay(DELAY_TIME);	
 	}
