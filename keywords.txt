@@ -17,3 +17,6 @@ getStatus	KEYWORD2
 #######################################
 # Constants	(LITERAL1)
 #######################################
+
+RELAY_CH1   LITERAL1
+RELAY_CH2   LITERAL1

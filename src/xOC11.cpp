@@ -35,8 +35,16 @@ bool xOC11::begin(void)
 
 bool xOC11::begin(bool state)
 {
-	digitalWrite(1,state);
-	digitalWrite(2,state);
+	digitalWrite(CH1,state);
+	digitalWrite(CH2,state);
+	xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_CONFIG, PCA9554A_CONF_OUTPUT);
+	return true;
+}
+
+bool xOC11::begin(bool state_1, bool state_2)
+{
+	digitalWrite(CH1,state_1);
+	digitalWrite(CH2,state_2);
 	xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_CONFIG, PCA9554A_CONF_OUTPUT);
 	return true;
 }
@@ -47,12 +55,13 @@ bool xOC11::begin(bool state)
 void xOC11::digitalWrite(uint8_t channel, bool state)
 {	
 	uint8_t port_status = getStatus();
-	channel = (uint8_t)(channel<<1);
 
 	if(state == true){
-		xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_OUTPUT_PORT, (channel | port_status));
+		port_status |= (1 << channel);
+		xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_OUTPUT_PORT, port_status);
 	}else if(state == false){
-		xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_OUTPUT_PORT, ((~channel) & port_status));
+		port_status &= ~(1 << channel);
+		xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_OUTPUT_PORT, port_status);
 	}
 }
 

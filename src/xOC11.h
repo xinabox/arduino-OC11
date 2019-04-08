@@ -27,6 +27,9 @@
 
 #define PCA9554A_ALL_OUTPUTS_OFF	0x00
 
+#define CH1	0
+#define CH2	1
+
 /********************************************************************/
 
 class xOC11: public xCoreClass
@@ -38,6 +41,7 @@ class xOC11: public xCoreClass
 		*/		
 		xOC11();
 		xOC11(uint8_t addr);
+
 		
 		/*
 		* Runs the setup of the sensor. 
@@ -57,6 +61,7 @@ class xOC11: public xCoreClass
 		* @return true if setup was successful.
 		*/	
 		bool begin(bool state);		
+		bool begin(bool state_1, bool state_2);
 		
 		/*
 		* Used to write to the pin. HIGH or LOW. 
