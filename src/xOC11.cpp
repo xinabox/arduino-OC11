@@ -47,7 +47,6 @@ bool xOC11::begin(bool state)
 void xOC11::digitalWrite(uint8_t channel, bool state)
 {	
 	uint8_t port_status = getStatus();
-	channel = (uint8_t)(channel<<1);
 
 	if(state == true){
 		xCore.write8(PCA9554A_I2C_ADDRESS, PCA9554A_REG_OUTPUT_PORT, (channel | port_status));
